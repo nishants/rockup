@@ -22,10 +22,6 @@ public class InsertSortAlgorithm<T extends Comparable> extends SortingAlgorithm<
     return elements;
   }
 
-  private boolean greaterThan(T element, T with) {
-    return element.compareTo(with) > 0;
-  }
-
   protected void insertElementAt(int fromIndex, int toIndex, T[] elements){
     T replaced = elements[fromIndex];
     elements[fromIndex] = elements[toIndex];

@@ -6,6 +6,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import static rockup.sort.AlgorithmTestSupport.*;
 public class InsertSortAlgorithmTest {
 
   private InsertSortAlgorithm<Integer> sorter;
@@ -69,11 +70,5 @@ public class InsertSortAlgorithmTest {
     Integer[] elements = toIntegerArray(3, 5, 2, 4);
     sorter.insertElementAt(2,1,elements);
     assertThat(elements, is(toIntegerArray(3, 2, 5, 4)));
-  }
-
-  private Integer[] toIntegerArray(int... elements){
-    Integer[] toElements = new Integer[elements.length];
-    for(int i=0; i< elements.length; i++) toElements[i] = new Integer(elements[i]);
-    return toElements;
   }
 }
