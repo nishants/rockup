@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -36,13 +35,8 @@ public class TestSortingAlgorithms {
 
   @Test
   public void shouldUpdateBeginTimeAndEndTime(){
-    assertThat(dumbSortingAlgorithm.getBeginTime(),is(0l));
-    assertThat(dumbSortingAlgorithm.getEndTime(),is(0l));
+    long runtime = dumbSortingAlgorithm.sort(new Integer[0]);
 
-    dumbSortingAlgorithm.sort(new Integer[0]);
-
-    assertThat(dumbSortingAlgorithm.getBeginTime(),is(not(0l)));
-    assertThat(dumbSortingAlgorithm.getEndTime(),is(not(0l)));
-    assertTrue(dumbSortingAlgorithm.runtimeInMillis() > MINIMUM_SLEEP_TIME);
+    assertTrue(runtime > MINIMUM_SLEEP_TIME);
   }
 }
