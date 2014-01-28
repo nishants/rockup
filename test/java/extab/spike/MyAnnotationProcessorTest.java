@@ -25,4 +25,9 @@ public class MyAnnotationProcessorTest {
     assertThat(processor.getAnnotationValue(LineItem.class), is("A line item"));
   }
 
+  @Test
+  public void shouldReadFieldAnnotations() throws NoSuchFieldException {
+    assertThat(processor.getFieldAnnotationOrder(LineItem.class, "programId"), is(1));
+    assertThat(processor.getFieldAnnotationValue(LineItem.class, "programId"), is("program-id"));
+  }
 }
