@@ -11,13 +11,14 @@ import java.util.Map;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class LineItemInstatiatorTest {
+public class ItemInstatiatorTest {
 
-  private LineItemInstatiator instatiator;
+  private final Class targetClass = LineItem.class;
+  private ItemInstatiator instatiator;
 
   @Before
   public void setUp() throws Exception {
-    instatiator = new LineItemInstatiator();
+    instatiator = new ItemInstatiator(targetClass);
   }
 
   @Test
@@ -32,7 +33,7 @@ public class LineItemInstatiatorTest {
     rowValues.put(0, itemOne);
     rowValues.put(1, itemTwo);
 
-    List<LineItem> createdItems = instatiator.createLineItems(rowValues);
+    List<LineItem> createdItems = instatiator.createItems(rowValues);
 
     LineItem lineItemOne = createdItems.get(0);
     LineItem lineItemTwo = createdItems.get(1);
