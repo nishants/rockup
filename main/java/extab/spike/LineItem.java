@@ -1,5 +1,7 @@
 package extab.spike;
+import lombok.Getter;
 
+@Getter
 @MyAnnotation(name="LineItem", value="A line item")
 public class LineItem {
 
