@@ -30,12 +30,12 @@ public class AnnotationProcessorTest {
   @Test
   public void shouldReadFieldAnnotations() throws NoSuchFieldException {
     assertThat(processor.getColumnAnnotationOrder(LineItem.class, "programId"), is(1));
-    assertThat(processor.getColumnAnnotationValue(LineItem.class, "programId"), is(ExcelColumnType.STRING));
+    assertThat(processor.getColumnType(LineItem.class, "programId"), is(ExcelColumnType.STRING));
   }
 
   @Test
   public void shouldReturnNullIfTheFieldIsNotAnnonated() throws NoSuchFieldException {
     assertThat(processor.getColumnAnnotationOrder(LineItem.class, "badField"), is(nullValue()));
-    assertThat(processor.getColumnAnnotationValue(LineItem.class, "badField"), is(nullValue()));
+    assertThat(processor.getColumnType(LineItem.class, "badField"), is(nullValue()));
   }
 }

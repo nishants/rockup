@@ -23,7 +23,7 @@ public class AnnotationProcessor {
     return (columnAnnotation == null) ? null : columnAnnotation.order();
   }
 
-  public ExcelColumnType getColumnAnnotationValue(Class claz, String fieldName) throws NoSuchFieldException {
+  public ExcelColumnType getColumnType(Class claz, String fieldName) throws NoSuchFieldException {
 
     ExcelColumn columnAnnotation = getColumnAnnotation(claz, fieldName);
     return (columnAnnotation == null) ? null : columnAnnotation.type();
