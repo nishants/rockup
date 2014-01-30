@@ -7,12 +7,12 @@ import java.util.Map;
 
 public class ItemInstatiator {
 
-  private final MyAnnotationProcessor processor;
+  private final AnnotationProcessor processor;
   private Class targetClass;
 
   public ItemInstatiator(Class targetClass) {
     this.targetClass = targetClass;
-    processor = new MyAnnotationProcessor();
+    processor = new AnnotationProcessor();
   }
 
   public List createItems(Map<Integer, List<String>> rows) {
@@ -51,7 +51,7 @@ public class ItemInstatiator {
 
   private int getFieldOrder(String fieldName){
     try {
-      return processor.getFieldAnnotationOrder(targetClass, fieldName);
+      return processor.getColumnAnnotationOrder(targetClass, fieldName);
     } catch (NoSuchFieldException e) {}
 
     return -1;
@@ -60,7 +60,7 @@ public class ItemInstatiator {
   private List<Field> getAnnotatedFields() {
     List<Field> fields = new ArrayList<Field>();
     for(Field field : targetClass.getDeclaredFields()){
-      if(isFieldAnnotatedWith(field, FieldAnnotation.class)) fields.add(field);
+      if(isFieldAnnotatedWith(field, ExcelColumn.class)) fields.add(field);
     }
     return fields;
   }

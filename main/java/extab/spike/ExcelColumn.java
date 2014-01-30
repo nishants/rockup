@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface FieldAnnotation {
+public @interface ExcelColumn {
   public int order();
   public String value();
 }

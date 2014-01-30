@@ -6,13 +6,13 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class MyAnnotationProcessorTest {
+public class AnnotationProcessorTest {
 
-  private MyAnnotationProcessor processor;
+  private AnnotationProcessor processor;
 
   @Before
   public void setUp() throws Exception {
-    processor = new MyAnnotationProcessor();
+    processor = new AnnotationProcessor();
   }
 
   @Test
@@ -27,7 +27,7 @@ public class MyAnnotationProcessorTest {
 
   @Test
   public void shouldReadFieldAnnotations() throws NoSuchFieldException {
-    assertThat(processor.getFieldAnnotationOrder(LineItem.class, "programId"), is(1));
-    assertThat(processor.getFieldAnnotationValue(LineItem.class, "programId"), is("program-id"));
+    assertThat(processor.getColumnAnnotationOrder(LineItem.class, "programId"), is(1));
+    assertThat(processor.getColumnAnnotationValue(LineItem.class, "programId"), is("program-id"));
   }
 }
