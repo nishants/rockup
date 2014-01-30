@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class AnnotationProcessorTest {
@@ -30,5 +31,11 @@ public class AnnotationProcessorTest {
   public void shouldReadFieldAnnotations() throws NoSuchFieldException {
     assertThat(processor.getColumnAnnotationOrder(LineItem.class, "programId"), is(1));
     assertThat(processor.getColumnAnnotationValue(LineItem.class, "programId"), is(ExcelColumnType.STRING));
+  }
+
+  @Test
+  public void shouldReturnNullIfTheFieldIsNotAnnonated() throws NoSuchFieldException {
+    assertThat(processor.getColumnAnnotationOrder(LineItem.class, "badField"), is(nullValue()));
+    assertThat(processor.getColumnAnnotationValue(LineItem.class, "badField"), is(nullValue()));
   }
 }

@@ -7,5 +7,7 @@ public class LineItem {
 
   @ExcelColumn(order=1)
   private String programId;
+
+  private String badField;
 }
 

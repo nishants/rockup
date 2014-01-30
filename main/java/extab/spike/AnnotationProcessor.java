@@ -15,17 +15,18 @@ public class AnnotationProcessor {
   public String getAnnotationValue(Class claz) {
     ExcelTable annotation = (ExcelTable)claz.getAnnotation(ExcelTable.class);
 
-    return annotation.value();
+    return (annotation == null) ? null : annotation.value();
   }
 
-  public int getColumnAnnotationOrder(Class claz, String fieldName) throws NoSuchFieldException {
-
-    return getColumnAnnotation(claz, fieldName).order();
+  public Integer getColumnAnnotationOrder(Class claz, String fieldName) throws NoSuchFieldException {
+    ExcelColumn columnAnnotation = getColumnAnnotation(claz, fieldName);
+    return (columnAnnotation == null) ? null : columnAnnotation.order();
   }
 
   public ExcelColumnType getColumnAnnotationValue(Class claz, String fieldName) throws NoSuchFieldException {
 
-    return getColumnAnnotation(claz, fieldName).type();
+    ExcelColumn columnAnnotation = getColumnAnnotation(claz, fieldName);
+    return (columnAnnotation == null) ? null : columnAnnotation.type();
   }
 
   private ExcelColumn getColumnAnnotation(Class claz, String fieldName) throws NoSuchFieldException {
