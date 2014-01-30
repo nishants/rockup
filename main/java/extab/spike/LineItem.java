@@ -5,7 +5,7 @@ import lombok.Getter;
 @ExcelTable(name="LineItem", value="A line item")
 public class LineItem {
 
-  @ExcelColumn(order=1, value="program-id")
+  @ExcelColumn(order=1)
   private String programId;
 }
 

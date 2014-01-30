@@ -1,5 +1,6 @@
 package extab.spike;
 
+import geeksaint.point.ExcelColumnType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,6 +29,6 @@ public class AnnotationProcessorTest {
   @Test
   public void shouldReadFieldAnnotations() throws NoSuchFieldException {
     assertThat(processor.getColumnAnnotationOrder(LineItem.class, "programId"), is(1));
-    assertThat(processor.getColumnAnnotationValue(LineItem.class, "programId"), is("program-id"));
+    assertThat(processor.getColumnAnnotationValue(LineItem.class, "programId"), is(ExcelColumnType.STRING));
   }
 }

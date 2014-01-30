@@ -1,5 +1,7 @@
 package extab.spike;
 
+import geeksaint.point.ExcelColumnType;
+
 import java.lang.reflect.Field;
 
 public class AnnotationProcessor {
@@ -21,9 +23,9 @@ public class AnnotationProcessor {
     return getColumnAnnotation(claz, fieldName).order();
   }
 
-  public String getColumnAnnotationValue(Class claz, String fieldName) throws NoSuchFieldException {
+  public ExcelColumnType getColumnAnnotationValue(Class claz, String fieldName) throws NoSuchFieldException {
 
-    return getColumnAnnotation(claz, fieldName).value();
+    return getColumnAnnotation(claz, fieldName).type();
   }
 
   private ExcelColumn getColumnAnnotation(Class claz, String fieldName) throws NoSuchFieldException {
