@@ -38,7 +38,7 @@ public class LibTest {
     Person personOne = new Person("one-one", "one-two", "one-three");
     Person personTwo = new Person("two-one", "two-two", "two-three");
     Person personThree = new Person("three-one", "three-two", "three-three");
-    InputStream inputStream = getClass().(validPersonFile);
+    InputStream inputStream = getClass().getResourceAsStream(validPersonFile);
 
     List<Person> expected = asList(personOne, personTwo, personThree);
 

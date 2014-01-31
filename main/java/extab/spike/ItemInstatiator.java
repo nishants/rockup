@@ -51,7 +51,7 @@ public class ItemInstatiator {
 
   private int getFieldOrder(String fieldName){
     try {
-      return processor.getColumnAnnotationOrder(targetClass, fieldName);
+      return processor.getFieldColumnOrder(targetClass, fieldName);
     } catch (NoSuchFieldException e) {}
 
     return -1;

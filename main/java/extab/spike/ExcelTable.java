@@ -9,5 +9,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface ExcelTable {
   public String name();
-  public String value();
+  public String comments() default "";
+  public int fromRow() default 0;
+  public int fromColumn()default 0;
 }

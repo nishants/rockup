@@ -21,7 +21,7 @@ public class RowDefinition {
     List<ExcelColumnType> rowDefinition = new ArrayList<ExcelColumnType>();
     for(Field field : rowType.getDeclaredFields()){
       try {
-        ExcelColumnType excelColumnType = annotationProcessor.getColumnType(rowType, field.getName());
+        ExcelColumnType excelColumnType = annotationProcessor.getFieldColumnType(rowType, field.getName());
         if(excelColumnType != null) rowDefinition.add(excelColumnType);
       } catch (NoSuchFieldException e) {}
     }

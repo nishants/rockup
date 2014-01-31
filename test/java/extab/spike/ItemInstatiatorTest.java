@@ -38,7 +38,7 @@ public class ItemInstatiatorTest {
     LineItem lineItemOne = createdItems.get(0);
     LineItem lineItemTwo = createdItems.get(1);
 
-    assertThat(lineItemOne.getProgramId(), is("program#1"));
-    assertThat(lineItemTwo.getProgramId(), is("program#2"));
+    assertThat(lineItemOne.getFieldOne(), is("program#1"));
+    assertThat(lineItemTwo.getFieldOne(), is("program#2"));
   }
 }

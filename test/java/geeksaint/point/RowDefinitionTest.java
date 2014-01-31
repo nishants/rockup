@@ -2,7 +2,6 @@ package geeksaint.point;
 
 import extab.spike.AnnotationProcessor;
 import extab.spike.ExcelColumn;
-import extab.spike.ItemInstatiator;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -21,10 +20,10 @@ public class RowDefinitionTest {
     }
 
     AnnotationProcessor annotationProcessor = mock(AnnotationProcessor.class);
-    when(annotationProcessor.getColumnType(Test.class, "columnOne")).thenReturn(ExcelColumnType.STRING);
-    when(annotationProcessor.getColumnType(Test.class, "columnTwo")).thenReturn(ExcelColumnType.STRING);
-    when(annotationProcessor.getColumnType(Test.class, "columnThree")).thenReturn(ExcelColumnType.STRING);
-    when(annotationProcessor.getColumnType(Test.class, "columnFour")).thenReturn(ExcelColumnType.STRING);
+    when(annotationProcessor.getFieldColumnType(Test.class, "columnOne")).thenReturn(ExcelColumnType.STRING);
+    when(annotationProcessor.getFieldColumnType(Test.class, "columnTwo")).thenReturn(ExcelColumnType.STRING);
+    when(annotationProcessor.getFieldColumnType(Test.class, "columnThree")).thenReturn(ExcelColumnType.STRING);
+    when(annotationProcessor.getFieldColumnType(Test.class, "columnFour")).thenReturn(ExcelColumnType.STRING);
 
     RowDefinition rowDefinition = new RowDefinition(TestClass.class, new AnnotationProcessor()) ;
 
