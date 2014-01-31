@@ -12,13 +12,9 @@ public class RowDefinition {
   private final Class rowType;
   private AnnotationProcessor annotationProcessor;
 
-  private RowDefinition(Class rowType){
-    annotationProcessor = new AnnotationProcessor();
+  public RowDefinition(Class rowType, AnnotationProcessor annotationProcessor){
+    this.annotationProcessor = annotationProcessor;
     this.rowType = rowType;
-  }
-
-  public static RowDefinition rowDefinitionFor(Class rowType){
-    return new RowDefinition(rowType);
   }
 
   public ExcelColumnType[] getRowDefinition() {
