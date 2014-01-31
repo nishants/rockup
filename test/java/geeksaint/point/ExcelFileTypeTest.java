@@ -19,6 +19,12 @@ public class ExcelFileTypeTest {
   public ExpectedException thrown = ExpectedException.none();
 
   @Test
+  public void shouldReturnCorrectFileType(){
+    assertThat(ExcelFileType.getFileType("/some/place/some-file.xls"), is(ExcelFileType.XLS));
+    assertThat(ExcelFileType.getFileType("/some/place/some-file.xlsx"), is(ExcelFileType.XLSX));
+  }
+
+  @Test
   public void shouldReturnHSSFWorkbookIfFileTypeIsXLS() throws IOException {
     ExcelFileType xlsFileType = ExcelFileType.XLS;
     InputStream inputStream = getClass().getResourceAsStream("/data/EmptyExcel.xls");
@@ -32,12 +38,6 @@ public class ExcelFileTypeTest {
     InputStream inputStream = getClass().getResourceAsStream("/data/EmptyExcel.xlsx");
 
     assertThat(xlsFileType.getWorkbook(inputStream), instanceOf(XSSFWorkbook.class));
-  }
-
-  @Test
-  public void shouldReturnCorrectFileType(){
-    assertThat(ExcelFileType.getFileType("/some/place/some-file.xls"), is(ExcelFileType.XLS));
-    assertThat(ExcelFileType.getFileType("/some/place/some-file.xlsx"), is(ExcelFileType.XLSX));
   }
 
   @Test

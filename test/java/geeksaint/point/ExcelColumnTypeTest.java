@@ -29,9 +29,7 @@ public class ExcelColumnTypeTest {
   @Test
   public void shouldRReturnEmptyStringIfCellTypeIsBlank(){
     Cell cell = mock(Cell.class);
-
     when(cell.getCellType()).thenReturn(Cell.CELL_TYPE_BLANK);
-
     assertThat((String) ExcelColumnType.STRING.getCellValue(cell), is(""));
   }
 

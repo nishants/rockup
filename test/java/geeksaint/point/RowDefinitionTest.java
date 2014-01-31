@@ -36,6 +36,5 @@ public class RowDefinitionTest {
     } ;
 
     assertArrayEquals(rowDefinition.getRowDefinition(), expectedRowDefinition);
-
   }
 }
