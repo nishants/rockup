@@ -1,5 +1,7 @@
 package extab.spike;
 
+import org.apache.poi.ss.formula.functions.T;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,7 @@ public class ItemInstatiator {
     return createdItems;
   }
 
-  private Object createItem(List<String> rowValues) {
+  public Object createItem(List<String> rowValues) {
     Object item = createNewInstance();
     for(Field field : getAnnotatedFields()){
       int index = getFieldOrder(field.getName()) - 1;

@@ -5,8 +5,10 @@ import extab.spike.AnnotationProcessor;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
 
 public class RowDefinition {
+  @Getter
   private final Class rowType;
   private AnnotationProcessor annotationProcessor;
 
