@@ -40,7 +40,7 @@ public class ExcelRowReaderTest {
     Object object = new Object();
     when(instatiator.createItem(asList("one", "two", "three"))).thenReturn(object);
 
-    ExcelRowReader reader = new ExcelRowReader(row, rowDefinition, instatiator);
-    assertThat(reader.getData(), is(object));
+    ExcelRowReader reader = new ExcelRowReader(rowDefinition, instatiator);
+    assertThat(reader.getData(row), is(object));
   }
 }
