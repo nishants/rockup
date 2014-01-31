@@ -1,6 +1,7 @@
 package extab.spike;
 import lombok.Getter;
 
+//A class for test
 @ExcelTable(name="LineItem", comments ="A line item")
 public class LineItem {
 
