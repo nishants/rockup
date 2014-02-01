@@ -26,7 +26,8 @@ public enum ExcelColumnType {
     }
 
     private String getNumberAsString(Cell cell) {
-      return Double.valueOf(cell.getNumericCellValue()).toString();
+      String value = Double.valueOf(cell.getNumericCellValue()).toString();
+      return value.replaceFirst("\\.0*$","");
     }
   };
 

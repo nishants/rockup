@@ -75,6 +75,16 @@ public class ExcelColumnTypeTest {
   }
 
   @Test
+  public void shouldTrimZeroAfterDecimalForNumericCell(){
+    Cell cell = mock(Cell.class);
+
+    when(cell.getCellType()).thenReturn(Cell.CELL_TYPE_NUMERIC);
+    when(cell.getNumericCellValue()).thenReturn(1.0);
+
+    assertThat((String) ExcelColumnType.STRING.getCellValue(cell), is("1"));
+  }
+
+  @Test
   public void shouldThrowExceptionIfCellIsNotNumericStringOrDate(){
     Cell cell = mock(Cell.class);
 
