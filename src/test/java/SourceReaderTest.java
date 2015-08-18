@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class SourceReaderTest {
-  private ByteArrayInputStream sourceInputStream = new ByteArrayInputStream(
+  private InputStream source = new ByteArrayInputStream(
           String.format("%s%n%s%n%s%n",
               "2013-07-10 02:52:49,-44.490947,171.220966",
               "2013-07-10 02:52:49,-33.912167,151.215820",
@@ -25,7 +26,7 @@ public class SourceReaderTest {
   @Test
   public void shouldReadSourceFile() throws Exception {
     List<String> acutalOutput = new ArrayList<>();
-    for (String output : SourceReader.read(sourceInputStream)) {
+    for (String output : SourceReader.read(source)) {
       acutalOutput.add(output);
     }
     assertThat(acutalOutput, is(expectedOutput));
