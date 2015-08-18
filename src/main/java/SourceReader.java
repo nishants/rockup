@@ -4,26 +4,29 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 
-import static java.util.Arrays.asList;
-
 public class SourceReader implements Iterator<String>{
   private final BufferedReader bufferedReader;
+  private final CSVParser csvParser;
   private String nextToken;
 
-  public SourceReader(InputStream inputStream) throws IOException {
+  public SourceReader(InputStream inputStream, CSVParser parser) throws IOException {
+    csvParser = parser;
     bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
     nextToken = bufferedReader.readLine();
   }
 
-  public static Iterable<String> read(final InputStream inputStream) {
+  public static Iterable<String> read(final InputStream inputStream) throws IOException {
+    final SourceReader reader = new SourceReader(inputStream,
+        new CSVParser(
+            new TimeParser(),
+            new LatitudeParser(),
+            new LongitudeParser())
+    );
+
     return new Iterable<String>() {
       @Override
       public Iterator<String> iterator() {
-        try {
-          return new SourceReader(inputStream);
-        } catch (IOException e) {
-          throw new IllegalArgumentException(e);
-        }
+        return reader;
       }
     };
   }
@@ -41,6 +44,6 @@ public class SourceReader implements Iterator<String>{
     } catch (IOException e) {
       throw new IllegalStateException(e);
     }
-    return current;
+    return csvParser.parse(current);
   }
 }
