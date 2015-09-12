@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class SourceReaderTest {
-  private InputStream source = new ByteArrayInputStream(
+  private final InputStream source = new ByteArrayInputStream(
           String.format("%s%n%s%n%s%n",
               "2013-07-10 02:52:49,-44.490947,171.220966",
               "2013-07-10 02:52:49,-33.912167,151.215820",
@@ -18,7 +18,7 @@ public class SourceReaderTest {
           ).getBytes())
       ;
 
-  private List<String> expectedOutput = asList(
+  private final List<String> expectedOutput = asList(
       "2013-07-10 02:52:49,-44.490947,171.220966,Pacific/Auckland,2013-07-10T14:52:49",
       "2013-07-10 02:52:49,-33.912167,151.215820,Australia/Sydney,2013-07-10T12:52:49",
       "2013-07-10 02:52:49,33.912167,-151.215820,Australia/Sydney,2013-07-10T12:52:49");

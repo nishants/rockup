@@ -1,19 +1,23 @@
-import rockup.Parser;
-
 public class CSVParser {
 
-  private final Parser[] columnParsers;
+  public String parse(String csv) {
+    String
+        tokens[]  = csv.split(","),
+        time      = tokens[0],
+        latitude  = tokens[1],
+        longitude = tokens[2];
 
-  public CSVParser(Parser...columnParsers) {
-    this.columnParsers = columnParsers;
+    return csv  +
+            "," + timezoneOf(latitude, longitude) +
+            "," + local(time);
   }
 
-  public String parse(String inputCSV) {
-    String[] tokens = inputCSV.split(",");
-    StringBuffer result = new StringBuffer();
-    for(int i =0; i<tokens.length; i++){
-      result.append(columnParsers[i].parse(tokens[i]));
-    }
-    return result.toString();
+  private String local(String time) {
+    return null;
+  }
+
+  private String timezoneOf(String latitude, String longitude) {
+    //TODO  figure out
+     return "Australia/Sydney";
   }
 }

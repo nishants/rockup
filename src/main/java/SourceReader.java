@@ -16,12 +16,7 @@ public class SourceReader implements Iterator<String>{
   }
 
   public static Iterable<String> read(final InputStream inputStream) throws IOException {
-    final SourceReader reader = new SourceReader(inputStream,
-        new CSVParser(
-            new TimeParser(),
-            new LatitudeParser(),
-            new LongitudeParser())
-    );
+    final SourceReader reader = new SourceReader(inputStream, new CSVParser());
 
     return new Iterable<String>() {
       @Override
