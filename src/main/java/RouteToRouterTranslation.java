@@ -8,17 +8,31 @@ public class RouteToRouterTranslation {
     transform(file, output);
   }
 
+  private static boolean defitnesRoute(String line){
+
+    return line.indexOf(".when('") != -1;
+  }
+
   public static void transform(String fileName, String outputFileName) throws IOException {
     BufferedReader reader = new BufferedReader(new FileReader(fileName));
     BufferedWriter writer = new BufferedWriter(new FileWriter(outputFileName));
 
     String line = reader.readLine();
     while(line != null){
-      writer.write(line);
+      writer.write(defitnesRoute(line) ? toRouter(line) : line);
       writer.newLine();
       line = reader.readLine();
     }
     reader.close();
     writer.close();
+  }
+
+  private static String toRouter(String line) {
+    String
+        tokens[]  = line.split("'"),
+        url       = tokens[1],
+        stateName     = url.replaceAll("/", "");
+
+    return ".state('" + stateName +"',{url: '" + url+ "'";
   }
 }
