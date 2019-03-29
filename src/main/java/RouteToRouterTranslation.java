@@ -30,9 +30,9 @@ public class RouteToRouterTranslation {
   private static String toRouter(String line) {
     String
         tokens[]  = line.split("'"),
-        url       = tokens[1],
-        stateName     = url.replaceAll("/", "");
+        url       = tokens[1].replaceFirst("/", ""),
+        stateName     = url.replaceAll("/", "-");
 
-    return ".state('" + stateName +"',{url: '" + url+ "'";
+    return ".state('" + stateName +"',{url: '" + url+ "',";
   }
 }

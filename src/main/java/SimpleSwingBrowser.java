@@ -139,6 +139,7 @@ public class SimpleSwingBrowser extends JFrame {
                   SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
+
                       JOptionPane.showMessageDialog(
                           panel,
                           (value != null)
@@ -187,7 +188,7 @@ public class SimpleSwingBrowser extends JFrame {
       public void run() {
         SimpleSwingBrowser browser = new SimpleSwingBrowser();
         browser.setVisible(true);
-        browser.loadURL("amoeba.social/dump/concepts/treniq/");
+        browser.loadURL("amoeba.social/dumps/concepts");
         new Thread(){
               public void run(){
                 System.out.println();

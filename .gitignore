@@ -2,3 +2,5 @@ main/java/rockup/puzzles/
 test/java/rockup/puzzles/.idea
 .idea
 target
+.DS_Store
+*.log
